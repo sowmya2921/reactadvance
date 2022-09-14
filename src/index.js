@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
 import {
   BrowserRouter,
   Routes,
@@ -10,19 +11,23 @@ import {
 } from "react-router-dom";
 import Countries from './Countries';
 import Home from './Home';
+import CountryDetails from './CountryDetails';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
-   <BrowserRouter>
-   <Routes>
-    <Route path="/" element={<App></App>}>
-    <Route index element={<Home></Home>}></Route>
-    <Route path='/countries' element={<Countries></Countries>}></Route>
-    <Route path="/home" element={<Home></Home>}></Route>
-    </Route>
-    
-   </Routes>
-   </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App></App>}>
+          <Route index element={<Home></Home>}></Route>
+          <Route path="/countries" element={<Countries></Countries>}>
+            <Route path="/countries/:c" element={<CountryDetails></CountryDetails>}></Route>
+          </Route>
+          <Route path="/home" element={<Home></Home>}></Route>
+        </Route>
+        
+      </Routes>
+    </BrowserRouter>
   
 );
 
