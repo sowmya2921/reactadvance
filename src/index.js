@@ -21,7 +21,7 @@ root.render(
         <Route path="/" element={<App></App>}>
           <Route index element={<Home></Home>}></Route>
           <Route path="/countries" element={<Countries></Countries>}>
-            <Route path="/countries/:c" element={<CountryDetails></CountryDetails>}></Route>
+            <Route path=":c" element={<CountryDetails></CountryDetails>}></Route>
           </Route>
           <Route path="/home" element={<Home></Home>}></Route>
         </Route>

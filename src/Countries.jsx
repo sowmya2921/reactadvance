@@ -17,7 +17,7 @@ function Countries() {
                         {
                             countries && countries.map((c,i)=>{
                                 return <li key={i}>
-                                    <Link to={`/countries/${c.alpha2Code}`}>{c.name}</Link>
+                                    <Link to={`${c.alpha2Code}`}>{c.name}</Link>
                                 </li>
                             })
                         }
