@@ -1,9 +1,9 @@
 import React,{useState} from "react";
 import { connect } from 'react-redux'
-function Todolist(props){
+function Todolist({dispatch,todolist:{todos}}){
     const [newtodo,setnewtodo] = useState('')
     function addtodo(){
-        props.dispatch({type:'ADDTODO',payload:newtodo})
+        dispatch({type:'ADDTODO',payload:newtodo})
     }
     return(
         <div className="betterview">
@@ -11,7 +11,7 @@ function Todolist(props){
             <input type="text" onChange={(e)=>{setnewtodo(e.target.value)}}/>
             <button onClick={addtodo}>Add Todo</button>
             {
-                props.todolist.todos.map((t)=>{
+                todos.map((t)=>{
                     return <li>{t}</li>
                 })
             }
