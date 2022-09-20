@@ -39,7 +39,7 @@ function productReducer(state=initialState,action){
                 return true
             }
         })
-        return {...state,cart:[temp]}
+        return {...state,cart:[...temp]}
     }
     return state
 }

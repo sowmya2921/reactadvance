@@ -18,7 +18,7 @@ function Cart({products:{cart},dispatch}){
                               <button onClick={()=>{dispatch({type:'INC-CART-PROD-COUNT',payload:cp})}}>+</button>
                               <b>{cp.count}</b>
                               <button onClick={()=>{dec(cp)}}>-</button>
-                              <button onClick={()=>{dispatch({type:'DELETe-CART-PROD',payload:cp})}}>Delete</button>
+                              <button onClick={()=>{dispatch({type:'DELETE-CART-PROD',payload:cp})}}>Delete</button>
 
                           </li>)
                 })
