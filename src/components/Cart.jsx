@@ -8,22 +8,45 @@ function Cart({products:{cart},dispatch}){
         }
         dispatch({type:'DEC-CART-PROD-COUNT',payload:cp})
     }
+    function total(){
+        return cart.reduce((a,b)=>{
+            return a+(b.price*b.count)
+        },0)
+    }
     return(
-        <div>
-            <h1>Cart</h1>
-            {
+        <div className="container">
+             <table className="table table-striped text-center">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Count</th>
+        <th>Total</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
                 cart.map((cp,i)=>{
-                   return (<li>
-                              {cp.title}-----{cp.price}
-                              <button onClick={()=>{dispatch({type:'INC-CART-PROD-COUNT',payload:cp})}}>+</button>
-                              <b>{cp.count}</b>
-                              <button onClick={()=>{dec(cp)}}>-</button>
-                              <button onClick={()=>{dispatch({type:'DELETe-CART-PROD',payload:cp})}}>Delete</button>
-
-                          </li>)
+                   return (<tr>
+                    <td className="text-right"> {cp.title}</td>
+                    <td>{cp.price}</td>
+                    <td>
+                    <i className="bi bi-plus-circle-fill" onClick={()=>{dispatch({type:'INC-CART-PROD-COUNT',payload:cp})}}></i>
+                    <b className="m-2">{cp.count}</b>
+                    <i className="bi bi-dash-circle-fill" onClick={()=>{dec(cp)}}></i>
+                    </td>
+                    <td className="text-center">{cp.price*cp.count}</td>
+                    <td className="text-center">
+                    <i className="bi bi-trsh-fill" onClick={()=>{dispatch({type:'DELETE-CART-PROD',payload:cp})}}></i>
+                    </td>
+                    </tr>)
                 })
             }
-            <h1>Total:</h1>
+    </tbody>
+  </table>
+           
+        <h1 className="text-center">Total:{cart.length && total()}</h1>
         </div>
     )
 }

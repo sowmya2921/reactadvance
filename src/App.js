@@ -6,7 +6,7 @@ import Counter from './components/Counter';
 import Todolist from './components/Todolist';
 import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
-import products from './store/products';
+
 
 function App() {
   return (

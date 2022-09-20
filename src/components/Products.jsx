@@ -23,19 +23,22 @@ function Products({products:{products,cart},dispatch}) {
             {
                 products.map((p,i)=>{
                     return (
-                <div className="card m-2" style={{width:"200px"}}>
-                <img className="card-img-top" src={p.image} alt="Card image" style={{width:"100%",height:'150px'}}/>
-                <div className="card-body">
+                <div className="card m-2 text-center" style={{width:"250px"}}>
+                <div className="text center">
+                <img className="card-img-top" src={p.image} alt="Card image" style={{width:"50%",height:'100px'}}/>
+                </div>
+               <div className="card-body">
                 <b>{p.title}</b>
-                <p className="card-text">
-                    {p.rating.rate}
-                    </p>
-                <a href="#" className="btn btn-primary">{p.price}</a>
+                </div>
+                <div className="card-footer">
+                <div className="d-flex justify-content-between">
+                <h3><i class="bi bi-star-fill"></i>{p.rating.rate}</h3>
+                <h3>{p.price}</h3>
+                </div>
                 {isInCart(p) && (<button onClick={()=>{navigate("/cart")}}>Go TO CART</button>)}
                 {!isInCart(p) && (<button className="btn btn-success" onClick={()=>{addToCart(p)}}>Add To Cart</button>)}
                 </div>
             </div>
-        
                     )
                 })
             }
