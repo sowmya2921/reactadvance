@@ -7,16 +7,13 @@ import Todolist from './components/Todolist';
 import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
 
-
 function App() {
   return (
     <Provider store={mainstore}>
-    <div>
-      <Header></Header>
-      <Outlet></Outlet>
-      
-      
-    </div>
+      <div>
+        <Header></Header>
+        <Outlet></Outlet>
+      </div>
     </Provider>
   );
 }

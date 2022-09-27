@@ -1,11 +1,10 @@
 const initialState = {
-    todos:['apple','mango','banana']
+    todos:['icecream','biryani','cola']
 }
-function todoReduce(state=initialState,action){
+function todoReaducer(state=initialState,action){
     if(action.type==='ADDTODO'){
         return {...state,todos:[...state.todos,action.payload]}
     }
     return state
-
 }
-export default todoReduce
+export default todoReaducer;
